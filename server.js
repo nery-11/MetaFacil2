@@ -12,13 +12,10 @@ app.use(express.json());
 app.use(cors());
 
 // Servir archivos estáticos desde la carpeta 'public'
-app.use(express.static(path.join(__dirname)));
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Conectar a MongoDB Atlas
-mongoose.connect('mongodb+srv://ncontrerast2:12345@metafacil.20wqq.mongodb.net/?retryWrites=true&w=majority&appName=metafacil', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
+// Conectar a MongoDB Atlas (sin las opciones deprecadas)
+mongoose.connect('mongodb+srv://ncontrerast2:12345@metafacil.20wqq.mongodb.net/?retryWrites=true&w=majority&appName=metafacil')
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log('Error en la conexión a MongoDB: ', err));
 
