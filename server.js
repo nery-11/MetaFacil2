@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(cors());
 
 // Servir archivos estáticos desde la carpeta 'public'
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname)));
 
 // Conectar a MongoDB Atlas
 mongoose.connect('mongodb+srv://ncontrerast2:12345@metafacil.20wqq.mongodb.net/?retryWrites=true&w=majority&appName=metafacil', {
@@ -71,7 +71,7 @@ app.post('/api/login', async (req, res) => {
 
 // Ruta para servir el archivo 'index.html'
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'loginne.html'));
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Iniciar el servidor en el puerto 5000
